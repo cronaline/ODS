@@ -3,14 +3,61 @@ ArrayStack
 Version 1
 4/enero/2017
 */
+import java.util.Scanner;
 public class ArrayStack
 {
     int n = 0;
     int a[] = new int[10];
-    // public ArrayStack(){
-    //     int n = 0;
-    //     int a[] = new int[10];
-    // }
+
+    public static void main(String args[]){
+        int op, in, val;
+        ArrayStack ar = new ArrayStack();
+        Scanner sc = new Scanner(System.in);
+        do{
+            System.out.println("\nElija la accion a realizar");
+            System.out.println("1) para obtener el tamaño del Array\n"
+                +"2) para obtener un elemento del Array apartir de su indice\n"
+                +"3) para cambiar el valor de un elemento apartir de su indice\n"
+                +"4) para agregar un elemento al arreglo en el indice elegido\n"
+                +"5) para borrar un elemento del arreglo a apartir de su indice\n"
+                +"6) para listar el arraglo"
+            );
+            op = sc.nextInt();
+            switch(op){
+                case 1:
+                    System.out.println("Tamaño del arreglo: "+ar.size());
+                break;
+                case 2:
+                    System.out.println("Ingrese el indice que desea obtener del arreglo");
+                    in = sc.nextInt();
+                    System.out.println("El valor almacenado en el indice "+in+" es: "+ar.get(in));
+                break;
+                case 3:
+                    System.out.println("Ingrese el indice que desea cambiar arreglo");
+                    in = sc.nextInt();
+                    System.out.println("Ingrese el nuevo valor");
+                    val = sc.nextInt();
+                    System.out.println("El valor almacenado en el indice "+in+" es: "+ar.set(in, val));
+                break;
+                case 4:
+                    System.out.println("Ingrese el indice en el que desea insertar el valor");
+                    in = sc.nextInt();
+                    System.out.println("Ingrese el nuevo valor");
+                    val = sc.nextInt();
+                    ar.add(in, val);
+                break;
+                case 5:
+                    System.out.println("Ingrese el indice en el que desea borrar el valor");
+                    in = sc.nextInt();
+                    System.out.println("El valor eliminado fue: "+ar.remove(in));
+                break;
+                case 6:
+                System.out.println("Los valores almacenados en el arreglo son: ");
+                ar.listar();
+                break;
+            }
+        }while(op != 0);
+    }
 
     public int size(){
         return n;
@@ -51,6 +98,13 @@ public class ArrayStack
             b[i] = a[i];
         }
         a = b;
+    }
+
+    public void listar(){
+        System.out.println();
+        for(int i=0; i<a.length; i++){
+            System.out.print(a[i]);
+        }
     }
 
 }
