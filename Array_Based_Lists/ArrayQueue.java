@@ -18,4 +18,18 @@ public class ArrayQueue{
         n++;//incremento del nuemro de elementos almacenados en la cola
         return true;
     }
+
+    //Elimina el elemento que se encuentra en la cabeza de la cola
+    //Entrada:
+    //Salida: El valor que se ecnotraba en la cabeza del arreglo
+    int remove(){
+        if (n == 0) throw new NoSuchElementException();
+        int x = a[j];
+        j = (j + 1) % a.length;
+        n--;
+        if (a.length <= 3*n) resize();
+        return x;
+    }
+
+
 }
