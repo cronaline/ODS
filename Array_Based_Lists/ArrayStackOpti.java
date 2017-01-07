@@ -1,10 +1,18 @@
 /*
-ArrayStack
+ArrayStack Optizado
+Utilizando el metodo de java
+System.arraycopy(s, i, d, j, n)
+donde:
+s: origen
+i: desde que indice (origen)
+d: destino
+j: desde que posicion (destino)
+n: numero de elementos
 Version 1
 4/enero/2017
 */
 import java.util.Scanner;
-public class ArrayStack
+public class ArrayStackOpti
 {
     int n = 0;
     int a[] = new int[10];
@@ -75,18 +83,14 @@ public class ArrayStack
 
     public void add(int i, int x){
         if(n + 1 > a.length) resize();
-        for(int j = n; j > i; j--){
-            a[j] = a[j-1];
-        }
+        System.arraycopy(a, i, a, (i+1), (n-i));
         a[i] = x;
         n++;
     }
 
     public int remove(int i){
         int var = a[i];
-        for(int j = i; j < n-1; j++){
-            a[j] = a[j+1];
-        }
+        System.arraycopy(a, (i+1), a, i, (n-i-1));
         n--;
         if(a.length <= 3*n) resize();
         return var;
