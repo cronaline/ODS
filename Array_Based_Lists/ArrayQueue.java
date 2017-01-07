@@ -4,6 +4,7 @@ Version 1
 5/enero/2017
 */
 
+import java.lang.Math.max;
 public class ArrayQueue{
     private static final TAM = 10;
     private int a[] = new int[TAM];
@@ -29,6 +30,16 @@ public class ArrayQueue{
         n--;
         if (a.length <= 3*n) resize();
         return x;
+    }
+
+    //Funciona que redimensiona la cola si esta crecio mas de su tamaño establecido
+    void resize(){
+        int b[] = new int[max(1,n*2)];//en caso de que la cola se quede vacia cambia su tamaño a uno para evitar un error con un tamaño 0
+        for(int k = 0; k < n; k++ ){
+            b[k] = a[(j+k) % a.legth]; //los elementos se agregan al inicio del nuevo arreglo
+        }
+        a = b;
+        j = 0;//Reinicia el inicio virtual de la cola
     }
 
 
