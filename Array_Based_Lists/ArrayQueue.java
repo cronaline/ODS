@@ -82,12 +82,12 @@ public class ArrayQueue{
         j = 0;//Reinicia el inicio virtual de la cola
     }
 
-    //Metodo que imprime los valores contenidos en la cola
+    //Metodo que imprime los valores contenidos en la cola en el orden que se supone que tienen
     public void listar(){
-        int i = j;
+        int i = j;  //Empieza desde el inicio virtual de la cola
         do{
             System.out.print(" "+a[i]);
-            i = ++i % a.length;
+            i = ++i % a.length; //incrementa el valor de i, si este sobrepasa el tamaño de la cola, regresa al inicio
         }while( i != j);
     }
 
