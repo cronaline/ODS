@@ -21,6 +21,7 @@ public class ArrayStack
                 +"4) para agregar un elemento al arreglo en el indice elegido\n"
                 +"5) para borrar un elemento del arreglo a apartir de su indice\n"
                 +"6) para listar el arraglo"
+                +"0) para terminar el programa"
             );
             op = sc.nextInt();
             switch(op){
