@@ -26,4 +26,22 @@ public class ArrayDeque{
         return val;
     }
 
+    //Metodo que agrega un elemento a la lista en un indice dado
+    //Entrada: indice en que se pretende insertar el valor
+    public void add(int i, int val){
+        if(n + 1 > a.length) resize();
+        if(i < n/2){ //movemos una casilla a la izquierda todos los elementos anteriores a i
+            j = (j == 0) ? a.length -1 : j - 1; //Si el inicio de la lista estaba al inicio del arreglo, lo recorre al final del arreglo, si no solo una casilla
+            for(int k = 0; k < i; k++){ //corrimiento de todos los elementos a la izquierda
+                a[(j + k) % a.length] = a[(j + k + 1) % a.length];//inicio virtual + el desplazamiento
+            }
+        }else{//movemos una casilla a la derecha todos los elementos posteriores a i
+            for(int k = n; k > i; k++){//n indica el numero de elementos por lo que apunta al indice del siguiente del ultimo elemento de la lista
+                a[(j + k) % a.length] = a[(j + k - 1) % a.length];
+            }
+        }
+        a[(j + i) % a.length] = val;
+        n++;
+    }
+
 }
