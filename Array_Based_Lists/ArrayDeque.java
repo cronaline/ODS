@@ -44,4 +44,23 @@ public class ArrayDeque{
         n++;
     }
 
+    //Metodo que corra un elemento de la lista ligada
+    //Entrada: indice donde se encuentra el elemento que se desea borrar
+    //Salida: Valor almacenado en ese indice
+    public int remove(int i){
+        int x = a[(j+i)%a.length];
+        if(i < n/2){ //Mueve los elementos anteriores al iesimo una casilla a la derecha
+            for(int k = i; k > 0; k--){
+                a[(j + k)%a.length] = a[(j + k -1 ) % a.length];
+            }
+            j = (j + 1) %a.length;//recorremos el inicio virtual de la cola ya que borramos un elemento
+        }else{//movemos todos los elementos posteriores a i una casilla hacia la izquierda
+            for(int k = i; k < n; k++){
+                a[(j + k)%a.length] = a[(j + k +1)%a.length];
+            }
+        }
+        n--;
+        if(3*n < a.legth) resize();
+        return x;
+    }
 }
