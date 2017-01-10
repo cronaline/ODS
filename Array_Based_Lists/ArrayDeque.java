@@ -4,6 +4,8 @@
 * 7/enero/2017
 * Este programa implementa la interfaz de una LSE usando un arreglo
 */
+import java.util.Scanner;
+import static java.lang.Math.max;
 public class ArrayDeque{
     private final static int TAM = 10;
     private int a[] = new int[TAM];
@@ -62,5 +64,14 @@ public class ArrayDeque{
         n--;
         if(3*n < a.legth) resize();
         return x;
+    }
+
+    private void resize(){
+        int b[] = new int[max(1, n*2)];
+        for(int k = 0; k < n; k++){
+            b[k] = a[(j + k) % a.length];//Se insertan los elementos en el supuesto orden en el que estaban
+        }
+        a = b;
+        j = 0;
     }
 }
