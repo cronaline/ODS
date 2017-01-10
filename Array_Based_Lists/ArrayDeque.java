@@ -12,6 +12,61 @@ public class ArrayDeque{
     int j = 0;  //Inicio relativo de la lista
     int n = 0;  //Numero de elementos almacenados en la lista
 
+    public static void main(String args[]){
+        int op, in, val;
+        ArrayDeque ad = new ArrayDeque();
+        Scanner sc = new Scanner(System.in);
+        do{
+            System.out.println("\nElija la accion a realizar");
+            System.out.println("1) para obtener el tamaño de la lista\n"
+                +"2) para obtener un elemento del Array apartir de su indice\n"
+                +"3) para cambiar el valor de un elemento apartir de su indice\n"
+                +"4) para agregar un elemento al arreglo en el indice elegido\n"
+                +"5) para borrar un elemento del arreglo a apartir de su indice\n"
+                +"6) para listar el arreglo"
+                +"0) para terminar el programa"
+            );
+            op = sc.nextInt();
+            switch(op){
+                case 1:
+                    System.out.println("Tamaño del arreglo: "+ad.size());
+                break;
+                case 2:
+                    System.out.println("Ingrese el indice que desea obtener de la lista");
+                    in = sc.nextInt();
+                    System.out.println("El valor almacenado en el indice "+in+" es: "+ad.get(in));
+                break;
+                case 3:
+                    System.out.println("Ingrese el indice que desea cambiar de la lista");
+                    in = sc.nextInt();
+                    System.out.println("Ingrese el nuevo valor");
+                    val = sc.nextInt();
+                    System.out.println("El valor almacenado en el indice "+in+" es: "+ad.set(in, val));
+                break;
+                case 4:
+                    System.out.println("Ingrese el indice en el que desea insertar el valor");
+                    in = sc.nextInt();
+                    System.out.println("Ingrese el nuevo valor");
+                    val = sc.nextInt();
+                    ad.add(in, val);
+                break;
+                case 5:
+                    System.out.println("Ingrese el indice en el que desea borrar el valor");
+                    in = sc.nextInt();
+                    System.out.println("El valor eliminado fue: "+ad.remove(in));
+                break;
+                case 6:
+                System.out.println("Los valores almacenados en la lista son: ");
+                ar.listar();
+                break;
+            }
+        }while(op != 0);
+    }
+
+    public size(){
+        return n;
+    }
+
     //Metodo que obtiene el valor de un elemento almacenado en cierto indice de acuerdo a inicio de la lista
     //Entrada: el indice del elemento que se desea obtener
     //Salida: valor almacenado en dicho indice
@@ -65,7 +120,13 @@ public class ArrayDeque{
         if(3*n < a.legth) resize();
         return x;
     }
+    public void listar(){
+        for(int k=0; k<n; k++){
+            System.out.print(a[(j + k) % a.length]);
+        }
+    }
 
+    //Metodo para cambiar de tamaño el arreglo
     private void resize(){
         int b[] = new int[max(1, n*2)];
         for(int k = 0; k < n; k++){
