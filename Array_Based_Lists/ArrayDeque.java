@@ -23,8 +23,8 @@ public class ArrayDeque{
                 +"3) para cambiar el valor de un elemento apartir de su indice\n"
                 +"4) para agregar un elemento al arreglo en el indice elegido\n"
                 +"5) para borrar un elemento del arreglo a apartir de su indice\n"
-                +"6) para listar el arreglo"
-                +"0) para terminar el programa"
+                +"6) para listar el arreglo\n"
+                +"0) para terminar el programa\n"
             );
             op = sc.nextInt();
             switch(op){
@@ -57,13 +57,14 @@ public class ArrayDeque{
                 break;
                 case 6:
                 System.out.println("Los valores almacenados en la lista son: ");
-                ar.listar();
+                ad.listar();
                 break;
             }
         }while(op != 0);
     }
 
-    public size(){
+    //Metodo que obtiene el tamaño d la lista
+    public int size(){
         return n;
     }
 
@@ -117,7 +118,7 @@ public class ArrayDeque{
             }
         }
         n--;
-        if(3*n < a.legth) resize();
+        if(3*n < a.length) resize();
         return x;
     }
     public void listar(){
