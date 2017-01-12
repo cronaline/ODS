@@ -59,4 +59,13 @@ class DualArrayDeque{
             x = back.remove(i - front.size());
         }
     }
+
+    private balance(){
+        int n = size();
+        if(3*front.size() < back.size()){
+            int s = n/2 - front.size();
+            ArrayStack p1 = new ArrayStack();
+            ArrayStack p2 = new ArrayStack();
+        }
+    }
 }
