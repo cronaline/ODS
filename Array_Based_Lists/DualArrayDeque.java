@@ -66,6 +66,14 @@ class DualArrayDeque{
             int s = n/2 - front.size();
             ArrayStack p1 = new ArrayStack();
             ArrayStack p2 = new ArrayStack();
+            l1.addStack(back.subStack(0, s));
+            l1.reverse();
+            l1.addStack(front);
+            l2.addStack(back.subStack(s, back.size()));
+            front = l1;
+            back = l2;
+        }else if(3*back.size() < front.size()){
+
         }
     }
 }
