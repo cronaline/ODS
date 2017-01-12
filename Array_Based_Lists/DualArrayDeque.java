@@ -22,7 +22,7 @@ class DualArrayDeque{
         if(i < front.size()){
             return front.get(front.size()- 1 - i);//Ya que los elementos estan almacenados al reves, obtenemos la posicion de i apartir del final de la pila
         }else{
-            return back.get(i - front. size());
+            return back.get(i - front. size());//Como estan almacenados en orden tenemos que descontar el numero de elementos almacenados en front
         }
     }
 
@@ -37,5 +37,26 @@ class DualArrayDeque{
         }
     }
 
-    
+    //Metodo que agrega un elemento a la lista
+    //Entradas: (int) Indice donde se desea agregar el elemento, (int) valor a agregar a la lista
+    public void add(int i, int val){
+        if(i < front.size()){
+            front.add(front.size()- i, x);
+        }else{
+            back.add(i - front.size(), x);
+        }
+        balance(); //Metodo que asegura que las dos pilas tengan un tamaño similar, para optimizacion
+    }
+
+    //Metodo que elimina un elemento de la lista
+    //Entrada: (int) indice del elemento que se desea eliminar
+    //Salida: (int) valor removido de la lista
+    public int remove(int i){
+        int x;
+        if(i < front.size()){
+            x = front.remove(front.size() - i - 1);
+        }else{
+            x = back.remove(i - front.size());
+        }
+    }
 }
