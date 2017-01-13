@@ -3,7 +3,7 @@ SLList
 Singly-Linked List
 Version 1
 12/enero/2017
-Lista simplemente ligada
+Lista simplemente ligada implementa las operaciones del Stack y Queue
 */
 public class SLList{
     Node head;
@@ -19,6 +19,22 @@ public class SLList{
             tail = u;
         }
         n++;
+        return x;
+    }
+
+    int pop(){
+        if(n == 0) return null;
+        int x = head.x;
+        head = head.next; //Se borra el primer elemento de la lista
+        if(-- n == 0) tail == null;
+        return x;
+    }
+
+    int remove(){
+        if(n == 0) return null;
+        int x = head.x;
+        head = head.next;
+        if(--n == 0) tail = null;
         return x;
     }
 }
