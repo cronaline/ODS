@@ -36,4 +36,26 @@ class DLList{
         }
         return p;
     }
+
+    int get(int i){
+        return getNode(i).val;
+    }
+
+    int set(int i, int x){
+        Node u = getNode(i);
+        int y = u.x;
+        u.x = x;
+        return y;
+    }
+
+    Node addBefore(Node w, int x){
+        Node u = new Node();
+        u.x = x;
+        u.prev = w.prev; //el anterior al nuevo nodo se enlaza con el anterior a w
+        u.next = w; //el siguiente del nuevo nodo se enlaza a w
+        u.next.prev = u; //Se enlaza el w al nodo anterior (nuevo)
+        u.prev.next = u; //El nodo anterior al nuevo, se enlaza al nuevo
+        n++
+        return u;
+    }
 }
