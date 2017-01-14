@@ -58,4 +58,20 @@ class DLList{
         n++
         return u;
     }
+
+    void add(int i, int x){
+        addBefore(getNode(i), x);
+    }
+
+    void remove(Node w){
+        w.prev.next = w.next;
+        w.next.prev = w.prev;
+        n--;
+    }
+
+    int remove(int i){
+        Node w = getNode(i);
+        remove(w);
+        return w.x;
+    }
 }
