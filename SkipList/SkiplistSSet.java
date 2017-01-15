@@ -4,7 +4,7 @@ Version 1
 14/enero/2017
 Skiplist que implementa la interfaz de un SSet
 */
-
+import java.util.Random;
 public class SkiplistSSet{
         private Node findPredNode(int i){
             Node u = sentinel;
@@ -23,5 +23,14 @@ public class SkiplistSSet{
             return u.next[0] == null ? null : u.next[0].x;
         }
 
-
+        int pickHeight(){
+            int z = rand.nextInt();
+            int k = 0;
+            int m = 1;
+            while((z & m) != 0){
+                k++;
+                m <<= 1;
+            }
+            return k;
+        }
 }
