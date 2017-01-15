@@ -6,7 +6,7 @@ Skiplist que implementa la interfaz de un SSet
 */
 
 public class SkiplistSSet{
-        Node findPredNode(int i){
+        private Node findPredNode(int i){
             Node u = sentinel;
             int r =h;
             while(r >= 0){
@@ -18,8 +18,10 @@ public class SkiplistSSet{
             return u;
         }
 
-        int find(int val){
+        public int find(int val){
             Node u = findPredNode(val);
             return u.next[0] == null ? null : u.next[0].x;
         }
+
+
 }
