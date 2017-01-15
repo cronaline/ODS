@@ -17,4 +17,9 @@ public class SkiplistSSet{
             }
             return u;
         }
+
+        int find(int val){
+            Node u = findPredNode(val);
+            return u.next[0] == null ? null : u.next[0].x;
+        }
 }
