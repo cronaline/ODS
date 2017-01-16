@@ -20,7 +20,7 @@ public static void main(String args[]){
                 +"3) para realizar una operacion pop\n"
                 +"4) para realizar una operacion add\n"
                 +"5) para realizar una operacion remove\n"
-                +"6) para listar el arraglo"
+                +"6) para mostrar los elementos de la lista lista"
                 +"0) para terminar el programa"
             );
             op = sc.nextInt();
@@ -117,5 +117,12 @@ class SLList{
         tail = u; //Cambia la referencia de tail
         n++;
         return true;
+    }
+
+    void listar(){
+        Node i;
+        for(i = head; i == head; i = i.next){
+            System.out.print(i.val);
+        }
     }
 }
