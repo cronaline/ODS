@@ -50,15 +50,18 @@ class SLList{
         return x;
     }
 
+    //Metodo que agrega un elemento a la lista en la ultima posicion
+    //Entrada: Valor a almacenar en la lista
+    //Salida: true, si el elemento se inserta correctamente
     boolean add(int x){
         Node u = new Node();
         u.x = x;
-        if(n == 0){
+        if(n == 0){ //Si es el primer elemento de la lista
             head = u;
         }else{
-            tail.next = u;
+            tail.next = u; //Enlaza el nuevo nodo
         }
-        tail = u;
+        tail = u; //Cambia la referencia de tail
         n++;
         return true;
     }
