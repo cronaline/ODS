@@ -11,22 +11,22 @@ Se he elegido el modificador de accesso por default para tener las dos clases en
 import java.util.Scanner;
 public static void main(String args[]){
         int op, in, val;
-        ArrayStack ar = new ArrayStack();
+        SLList sl = new SLList();
         Scanner sc = new Scanner(System.in);
         do{
             System.out.println("\nElija la accion a realizar");
             System.out.println("1) para obtener el tamaño del Array\n"
-                +"2) para obtener un elemento del Array apartir de su indice\n"
-                +"3) para cambiar el valor de un elemento apartir de su indice\n"
-                +"4) para agregar un elemento al arreglo en el indice elegido\n"
-                +"5) para borrar un elemento del arreglo a apartir de su indice\n"
+                +"2) para realizar una operacion push\n"
+                +"3) para realizar una operacion pop\n"
+                +"4) para realizar una operacion add\n"
+                +"5) para realizar una operacion remove\n"
                 +"6) para listar el arraglo"
                 +"0) para terminar el programa"
             );
             op = sc.nextInt();
             switch(op){
                 case 1:
-                    System.out.println("Tamaño del arreglo: "+ar.size());
+                    System.out.println("Tamaño del arreglo: "+sl.size());
                 break;
                 case 2:
                     System.out.println("Ingrese el indice que desea obtener del arreglo");
@@ -52,10 +52,6 @@ public static void main(String args[]){
                     in = sc.nextInt();
                     System.out.println("El valor eliminado fue: "+ar.remove(in));
                 break;
-                case 6:
-                System.out.println("Los valores almacenados en el arreglo son: ");
-                ar.listar();
-                break;
             }
         }while(op != 0);
     }
@@ -69,6 +65,10 @@ class SLList{
     Node head;  //Referencia el primer nodo
     Node tail;  //Referencia al ultimo nodo
     int n;  //numero de nodods
+
+    int size(){
+        return n;
+    }
 
     //Metodo para implementar la operacion push de un Stack
     //Entrada: valor a almacenar en la pila
