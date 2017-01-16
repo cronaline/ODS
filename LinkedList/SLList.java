@@ -29,16 +29,12 @@ public static void main(String args[]){
                     System.out.println("Tamaño del arreglo: "+sl.size());
                 break;
                 case 2:
-                    System.out.println("Ingrese el indice que desea obtener del arreglo");
-                    in = sc.nextInt();
-                    System.out.println("El valor almacenado en el indice "+in+" es: "+ar.get(in));
+                    System.out.println("Ingrese el valor que desea insertar");
+                    val = sc.nextInt();
+                    sl.push(val;)
                 break;
                 case 3:
-                    System.out.println("Ingrese el indice que desea cambiar arreglo");
-                    in = sc.nextInt();
-                    System.out.println("Ingrese el nuevo valor");
-                    val = sc.nextInt();
-                    System.out.println("El valor almacenado en el indice "+in+" es: "+ar.set(in, val));
+                    System.out.println("El valor almacenado en la cabeza de la lista es: "+al.pop;
                 break;
                 case 4:
                     System.out.println("Ingrese el indice en el que desea insertar el valor");
