@@ -56,6 +56,10 @@ class SLList{
                     case 5:
                         System.out.println("El valor eliminado fue: "+sl.remove());
                     break;
+                    case 6:
+                        System.out.println();
+                        sl.listar();
+                    break;
                 }
             }while(op != 0);
         }
@@ -113,8 +117,9 @@ class SLList{
 
     void listar(){
         Node i;
-        for(i = head; i == head; i = i.next){
+        for(i = head; i != tail; i = i.next){
             System.out.print(i.val);
         }
+        System.out.print(i.val);
     }
 }
