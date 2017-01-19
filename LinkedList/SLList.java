@@ -9,48 +9,6 @@ Se he elegido el modificador de accesso por default para tener las dos clases en
 //Clase Nodo utilizada en la clase SLList
 
 import java.util.Scanner;
-public static void main(String args[]){
-        int op, in, val;
-        SLList sl = new SLList();
-        Scanner sc = new Scanner(System.in);
-        do{
-            System.out.println("\nElija la accion a realizar");
-            System.out.println("1) para obtener el tamaño del Array\n"
-                +"2) para realizar una operacion push\n"
-                +"3) para realizar una operacion pop\n"
-                +"4) para realizar una operacion add\n"
-                +"5) para realizar una operacion remove\n"
-                +"6) para mostrar los elementos de la lista lista"
-                +"0) para terminar el programa"
-            );
-            op = sc.nextInt();
-            switch(op){
-                case 1:
-                    System.out.println("Tamaño del arreglo: "+sl.size());
-                break;
-                case 2:
-                    System.out.println("Ingrese el valor que desea insertar");
-                    val = sc.nextInt();
-                    sl.push(val;)
-                break;
-                case 3:
-                    System.out.println("El valor almacenado en la cabeza de la lista es: "+al.pop;
-                break;
-                case 4:
-                    System.out.println("Ingrese el indice en el que desea insertar el valor");
-                    in = sc.nextInt();
-                    System.out.println("Ingrese el nuevo valor");
-                    val = sc.nextInt();
-                    ar.add(in, val);
-                break;
-                case 5:
-                    System.out.println("Ingrese el indice en el que desea borrar el valor");
-                    in = sc.nextInt();
-                    System.out.println("El valor eliminado fue: "+ar.remove(in));
-                break;
-            }
-        }while(op != 0);
-    }
 
 class Node{
     int val;
@@ -61,6 +19,49 @@ class SLList{
     Node head;  //Referencia el primer nodo
     Node tail;  //Referencia al ultimo nodo
     int n;  //numero de nodods
+
+    public static void main(String args[]){
+            int op, in, val;
+            SLList sl = new SLList();
+            Scanner sc = new Scanner(System.in);
+            do{
+                System.out.println("\nElija la accion a realizar");
+                System.out.println("1) para obtener el tamaño del Array\n"
+                    +"2) para realizar una operacion push\n"
+                    +"3) para realizar una operacion pop\n"
+                    +"4) para realizar una operacion add\n"
+                    +"5) para realizar una operacion remove\n"
+                    +"6) para mostrar los elementos de la lista lista\n"
+                    +"0) para terminar el programa"
+                );
+                op = sc.nextInt();
+                switch(op){
+                    case 1:
+                        System.out.println("Tamaño del arreglo: "+sl.size());
+                    break;
+                    case 2:
+                        System.out.println("Ingrese el valor que desea insertar");
+                        val = sc.nextInt();
+                        sl.push(val);
+                    break;
+                    case 3:
+                        System.out.println("El valor almacenado en la cabeza de la lista es: "+sl.pop);
+                    break;
+                    case 4:
+                        System.out.println("Ingrese el indice en el que desea insertar el valor");
+                        in = sc.nextInt();
+                        System.out.println("Ingrese el nuevo valor");
+                        val = sc.nextInt();
+                        sl.add(in, val);
+                    break;
+                    case 5:
+                        System.out.println("Ingrese el indice en el que desea borrar el valor");
+                        in = sc.nextInt();
+                        System.out.println("El valor eliminado fue: "+sl.remove(in));
+                    break;
+                }
+            }while(op != 0);
+        }
 
     int size(){
         return n;
@@ -85,7 +86,7 @@ class SLList{
         if(n == 0) return null;
         int x = head.x;
         head = head.next; //Se borra el primer elemento de la lista
-        if(-- n == 0) tail == null;
+        if(-- n == 0) tail = null;
         return x;
     }
 
