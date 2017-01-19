@@ -6,6 +6,9 @@ Version 1
 Lista simplemente ligada implementa las operaciones del Stack y Queue
 */
 
+//Clase Nodo que sera utilizada en la lista doblemente ligada
+//Contiene el valor almacenado en el Nodo, asi como las referencias
+//al nodo anterior y al siguiente
 class Node{
     int val;
     Node prev, next;
@@ -13,7 +16,9 @@ class Node{
 
 class DLList{
     int n;
-    Node dummy;
+    Node dummy; //Nodo que une al ultimo y al primer elemento de la lista
+
+    //Constructor de la clase que inicializa al nodo dummy, asi como el numero de elementos de la lista
     DLList(){
         dummy = new Node();
         dummy.next = dummy;
@@ -21,6 +26,7 @@ class DLList{
         n = 0;
     }
 
+    
     Node getNode(int i){
         Node p = null;
         if(i < n / 2){
