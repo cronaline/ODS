@@ -26,16 +26,16 @@ class DLList{
         n = 0;
     }
 
-    
+    //Metodo que encuentra un nodo de acuerdo a su posicion en la lista
     Node getNode(int i){
         Node p = null;
-        if(i < n / 2){
+        if(i < n / 2){ //Si el elemento se encuentra en la primera mitad de la lista
             p = dummy.next;
             for(int j = 0; j < i; j++){
                 p = p.next;
             }
-        }else{
-            p = dummy;
+        }else{  //Si se encuentra en la segunda mitad de la lista
+            p = dummy.prev;
             for(int j = n; j > i; j--){
                 p = p.prev;
             }
@@ -43,10 +43,16 @@ class DLList{
         return p;
     }
 
+    //Metodo que devuleve un valor almacenado en un nodo
+    //Entrada: indice del elemento que se busca
+    //Salida: Valor almacenado en el nodo indicado
     int get(int i){
         return getNode(i).val;
     }
 
+    //Metodo que cambia el valor almacenado en un nodo
+    //Entrada: indice de nodo a buscar, nuevo valor a almacenar
+    //Salida: antiguo valor almacenado en ese nodo
     int set(int i, int x){
         Node u = getNode(i);
         int y = u.x;
@@ -54,6 +60,9 @@ class DLList{
         return y;
     }
 
+    //Metodo que agrega un nodo antes que otro nodo
+    //Entrada: Nodo al que se le agregara detras el nuevo nodo, valor a almacenar en el nuevo nodo
+    //Salida: nuevo nodo almacenado
     Node addBefore(Node w, int x){
         Node u = new Node();
         u.x = x;
@@ -65,6 +74,8 @@ class DLList{
         return u;
     }
 
+    //Metodo que agrega un valor en una posicion dada
+    //Entrada: indice en el cual se agregara el nuevo nodo, valor a alamcenar
     void add(int i, int x){
         addBefore(getNode(i), x);
     }
