@@ -5,6 +5,7 @@ Version 1
 12/enero/2017
 Lista simplemente ligada implementa las operaciones del Stack y Queue
 Se he elegido el modificador de accesso por default para tener las dos clases en un solo archivo
+Los metodos de remove y pop causan un problema si la lista esta vacia
 */
 //Clase Nodo utilizada en la clase SLList
 
@@ -45,19 +46,15 @@ class SLList{
                         sl.push(val);
                     break;
                     case 3:
-                        System.out.println("El valor almacenado en la cabeza de la lista es: "+sl.pop);
+                        System.out.println("El valor almacenado en la cabeza de la lista es: "+sl.pop());
                     break;
                     case 4:
-                        System.out.println("Ingrese el indice en el que desea insertar el valor");
-                        in = sc.nextInt();
                         System.out.println("Ingrese el nuevo valor");
                         val = sc.nextInt();
-                        sl.add(in, val);
+                        sl.add(val);
                     break;
                     case 5:
-                        System.out.println("Ingrese el indice en el que desea borrar el valor");
-                        in = sc.nextInt();
-                        System.out.println("El valor eliminado fue: "+sl.remove(in));
+                        System.out.println("El valor eliminado fue: "+sl.remove());
                     break;
                 }
             }while(op != 0);
@@ -83,8 +80,7 @@ class SLList{
     //Metodod para implementar la operacion pop de un Stack
     //Salida: valor almacenado en la primera posicion de la lista
     int pop(){
-        if(n == 0) return null;
-        int x = head.x;
+        int x = head.val;
         head = head.next; //Se borra el primer elemento de la lista
         if(-- n == 0) tail = null;
         return x;
@@ -93,8 +89,7 @@ class SLList{
     //Metodo que elimia un elemento de la lista para implementar la interfaz de un Queue
     //Salida: el valor almacenado en la primera posicion de la lista
     int remove(){
-        if(n == 0) return null;
-        int x = head.x;
+        int x = head.val;
         head = head.next;
         if(--n == 0) tail = null;
         return x;
@@ -105,7 +100,7 @@ class SLList{
     //Salida: true, si el elemento se inserta correctamente
     boolean add(int x){
         Node u = new Node();
-        u.x = x;
+        u.val = x;
         if(n == 0){ //Si es el primer elemento de la lista
             head = u;
         }else{
