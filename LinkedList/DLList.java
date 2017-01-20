@@ -3,14 +3,15 @@ DLList
 Doubly-Linked List
 Version 1
 12/enero/2017
-Lista simplemente ligada implementa las operaciones del Stack y Queue
+Lista doblemente ligada, cuenta con un nodo llamado dummy que une el inicio de la lista con el final de la misma
+con el obejtivo de facilitar las operaciones
 */
 
 //Clase Nodo que sera utilizada en la lista doblemente ligada
 //Contiene el valor almacenado en el Nodo, asi como las referencias
 //al nodo anterior y al siguiente
 class Node{
-    int val;
+    int x;
     Node prev, next;
 }
 
@@ -27,6 +28,7 @@ class DLList{
     }
 
     //Metodo que encuentra un nodo de acuerdo a su posicion en la lista
+    //Entrada: posicion en la lista
     Node getNode(int i){
         Node p = null;
         if(i < n / 2){ //Si el elemento se encuentra en la primera mitad de la lista
@@ -47,7 +49,7 @@ class DLList{
     //Entrada: indice del elemento que se busca
     //Salida: Valor almacenado en el nodo indicado
     int get(int i){
-        return getNode(i).val;
+        return getNode(i).x;
     }
 
     //Metodo que cambia el valor almacenado en un nodo
@@ -70,7 +72,7 @@ class DLList{
         u.next = w; //el siguiente del nuevo nodo se enlaza a w
         u.next.prev = u; //Se enlaza el w al nodo anterior (nuevo)
         u.prev.next = u; //El nodo anterior al nuevo, se enlaza al nuevo
-        n++
+        n++;
         return u;
     }
 
@@ -80,12 +82,17 @@ class DLList{
         addBefore(getNode(i), x);
     }
 
+    //Metodo que desliga un nodo de la lista
+    //Entrada: nodo a borrar
     void remove(Node w){
         w.prev.next = w.next;
         w.next.prev = w.prev;
         n--;
     }
 
+    //Metodo que borra un nodo de la lista
+    //Entrada: posicion de la lista a ser eliminada
+    //Salida: antiguo valor almacenado en esa posicion de la lista
     int remove(int i){
         Node w = getNode(i);
         remove(w);
