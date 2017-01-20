@@ -4,8 +4,7 @@ Doubly-Linked List
 Version 1
 12/enero/2017
 Lista doblemente ligada, cuenta con un nodo llamado dummy que une el inicio de la lista con el final de la misma
-con el obejtivo de facilitar las operaciones. Esta lista doblemente ligada implementa las operaciones de la pila
-y la cola
+con el obejtivo de facilitar las operaciones. Esta lista doblemente ligada implementa las operaciones de la queue
 */
 
 //Clase Nodo que sera utilizada en la lista doblemente ligada
@@ -31,43 +30,56 @@ class DLList{
     }
 
     public static void main(String args[]){
-        int op, in, val;
+        int op, ind, val;
         DLList dl = new DLList();
         Scanner sc = new Scanner(System.in);
         do{
             System.out.println("\nElija la accion a realizar");
             System.out.println("1) para obtener el tamaño del Array\n"
-                +"2) para realizar una operacion push\n"
-                +"3) para realizar una operacion pop\n"
+                +"2) para realizar una operacion get\n"
+                +"3) para realizar una operacion set\n"
                 +"4) para realizar una operacion add\n"
                 +"5) para realizar una operacion remove\n"
                 +"6) para mostrar los elementos de la lista lista\n"
+                +"7) para mostrar los elementos de la lista lista en el orden inverso\n"
                 +"0) para terminar el programa"
             );
             op = sc.nextInt();
             switch(op){
                 case 1:
-                    System.out.println("Tamaño del arreglo: "+sl.size());
+                    System.out.println("Tamaño del arreglo: "+dl.size());
                 break;
                 case 2:
-                    System.out.println("Ingrese el valor que desea insertar");
+                    System.out.println("Ingrese el indice del que desea conocer el valor");
                     val = sc.nextInt();
-                    sl.push(val);
+                    dl.get(val);
                 break;
                 case 3:
-                    System.out.println("El valor almacenado en la cabeza de la lista es: "+sl.pop());
-                break;
-                case 4:
+                    System.out.println("Ingrese el indice del nodo cuyo valor desea cambiar");
+                    ind = sc.nextInt();
                     System.out.println("Ingrese el nuevo valor");
                     val = sc.nextInt();
-                    sl.add(val);
+                    dl.set(ind, val);
+                break;
+                case 4:
+                    System.out.println("Ingrese el indice del nodo que desea agregar");
+                    ind = sc.nextInt();
+                    System.out.println("Ingrese el nuevo valor");
+                    val = sc.nextInt();
+                    dl.add(ind, val);
                 break;
                 case 5:
-                    System.out.println("El valor eliminado fue: "+sl.remove());
+                    System.out.println("Ingrese el indice del nodo que desea borrar");
+                    ind = sc.nextInt();
+                    System.out.println("El valor eliminado fue: "+dl.remove(ind));
                 break;
                 case 6:
                     System.out.println();
-                    sl.listar();
+                    dl.listar();
+                break;
+                case 7:
+                    System.out.println();
+                    dl.listarAlReves();
                 break;
             }
         }while(op != 0);
@@ -148,13 +160,13 @@ class DLList{
         return w.x;
     }
 
-    void lista(){
+    void listar(){
         for(Node i = dummy.next; i != dummy; i=i.next){
             System.out.print(i.x+" ");
         }
     }
 
-    void listaAlReves(){
+    void listarAlReves(){
         for(Node i = dummy.prev; i != dummy; i=i.prev){
             System.out.print(i.x+" ");
         }
