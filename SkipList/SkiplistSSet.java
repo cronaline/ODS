@@ -55,4 +55,25 @@ public class SkiplistSSet{
         n++;
         return true;
     }
+
+    boolean remove(int x){
+        boolean removed = false;
+        Node u = sentinel;
+        int r = h;
+        int comp = 0;
+        while(r >= 0){
+            while(u.next[r] != null && (comp = compare(u.next[r].x, x)) < 0){
+                u = u.next[r];
+            }if(u.next[r] != null && comp == 0){
+                removed = true;
+                u.next[r] = u.next[r].next[r];
+                if(u == sentinel && u.next[r] == null){
+                    h--;// reduce la altura
+                }
+            }
+            r--;
+        }
+        if (removed) n--;
+        return removed;
+    }
 }
