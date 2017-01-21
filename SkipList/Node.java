@@ -3,14 +3,15 @@
 * Version 1
 * 14/enero/2017
 */
+import java.lang.reflect.Array;
 public class Node{
-    int val;
+    int x;
     Node next [];
 
     //Constructor de la clase nodo, recibe el valor a almacenar en el nodo, asi como su altura
     Node(int ix, int h){
         x = ix;
-        next = Array.newIstance(Node.class, h+1);
+        next = Array.newInstance(Node.class, h+1);
     }
 
     //Metodo que retorna la altura del nodo
