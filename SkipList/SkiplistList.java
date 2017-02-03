@@ -36,4 +36,10 @@ class SkiplistList{
         }
         return u;
     }
+
+    int get(int i){
+        return findPred(i).next[0].x;
+    }
+
+
 }
