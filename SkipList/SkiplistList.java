@@ -21,3 +21,19 @@ class Nodo{
         return next.length -1;
     }
 }
+
+class SkiplistList{
+    Node findPred(int i){
+        Node u = sentinel;
+        int r = h;
+        int j = -1;
+        while(r >= 0){
+            while(u.next[r] != null && j+ u.length[r] < i){
+                j += u.length[r];
+                u = u.net[r];
+            }
+            r--;
+        }
+        return u;
+    }
+}
