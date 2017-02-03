@@ -41,5 +41,11 @@ class SkiplistList{
         return findPred(i).next[0].x;
     }
 
+    int set(int i, int x){
+        Node u = findPred(i).next[0];
+        int y = u.x;
+        u.x = x;
+        return y;
+    }
 
 }
