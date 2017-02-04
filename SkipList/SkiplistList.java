@@ -49,7 +49,11 @@ class SkiplistList{
     }
 
     void add(int i, int x){
-        Node w = new Node(x, )
+        Node w = new Node(x, pickHeight());
+        if(w.height() h){
+            h = w.height();
+        }
+        add(i, w);
     }
 
 
