@@ -48,4 +48,20 @@ class SkiplistList{
         return y;
     }
 
+    void add(int i, int x){
+        Node w = new Node(x, )
+    }
+
+
+    int pickHeight(){
+        int z = rand.nextInt();
+        int k = 0;
+        int m = 1;
+        while((z & m) != 0){
+            k++;
+            m <<= 1;
+        }
+        return k;
+    }
+
 }
