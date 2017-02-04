@@ -56,6 +56,28 @@ class SkiplistList{
         add(i, w);
     }
 
+    Node add(int i, Node w){
+        Node u = sentinel;
+        int k = w.height();
+        int r = h;
+        int j = -1;
+        while(r >= 0){
+            while(u.next[r] != null && j+u.length[r] < i){
+                j += u.length[r];
+                u = u.next[r];
+            }
+            u.length[r]++;
+            if(r <= k){
+                w.next[r] = u.next[r];
+                u.next[r] = w;
+                w.length[r] = u.length[r] - (i - j);
+                u.length[r] = i -j;
+            }
+            r--;
+        }
+        n++;
+        return u;
+    }
 
     int pickHeight(){
         int z = rand.nextInt();
